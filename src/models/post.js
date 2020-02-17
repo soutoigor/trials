@@ -22,7 +22,7 @@ const postSchema = new Schema({
     required: false,
     trim: true,
   },
-  code: {
+  text: {
     type: String,
     required: true,
     trim: true,
@@ -42,7 +42,7 @@ const postSchema = new Schema({
       trim: true,
       required: true,
     },
-    message: {
+    text: {
       type: String,
       trim: true,
       required: true,
