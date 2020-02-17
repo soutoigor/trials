@@ -1,6 +1,7 @@
 const {
   create: createTask,
   list: listTasks,
+  listById: listTaskById,
   update: updateTask,
   remove: removeTask,
 } = require('../services/task')
@@ -19,6 +20,19 @@ const list = (req, res) => {
   listTasks()
     .then((tasks) => {
       res.json(tasks)
+    })
+    .catch((err) => {
+      res.status(500).send(err)
+    })
+}
+
+const listById = (req, res) => {
+  listTaskById(req.params.id)
+    .then((task) => {
+      if (task.message === 'Task not found') {
+        res.status(404).send(task.message)
+      }
+      res.json(task)
     })
     .catch((err) => {
       res.status(500).send(err)
@@ -54,6 +68,7 @@ const remove = (req, res) => {
 module.exports = {
   create,
   list,
+  listById,
   update,
   remove,
 }

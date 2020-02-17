@@ -27,6 +27,16 @@ const list = async () => {
   }
 }
 
+const listById = async (id) => {
+  try {
+    const task = await Task.findById(id)
+    if (isNil(task)) throw new Error('Task not found')
+    return task
+  } catch (err) {
+    return err
+  }
+}
+
 const update = async (attributes, id) => {
   const updates = keys(attributes)
   const allowedUpdates = ['text', 'status']
@@ -62,6 +72,7 @@ const remove = async (id) => {
 module.exports = {
   create,
   list,
+  listById,
   update,
   remove,
 }
