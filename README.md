@@ -1,13 +1,15 @@
 # **Trials**
 
 Trials is a collection of simple APIs that you can use when you're trying a new technology or studying.  
-It contains "famous" APIs, like TODOs and Blog (and that's is for now 😜). 
+It contains "famous" APIs, like TODOs and Blog (and that's is for now 😜).  
+  
+Have an idea of API? **contribute**! 🙌
 
 ## Setup
 
 You can run locally by following:
 
-clone the project:  
+Clone the project:  
 `git clone git@github.com:soutoigor/trials.git`
 
 Create a `.env` file and add the environment variables as in `.env.example` file  
@@ -36,4 +38,3 @@ Now it must be showing the message `App listening on port [PORT]!` in terminal.
 
 ## Author
 [Igor Souto](https://www.linkedin.com/in/igor-souto/)
-
