@@ -27,6 +27,16 @@ const list = async () => {
   }
 }
 
+const listById = async (id) => {
+  try {
+    const post = await Post.findById(id)
+    if (isNil(post)) throw new Error('Post not found')
+    return post
+  } catch (err) {
+    return err
+  }
+}
+
 const update = async (attributes, id) => {
   const updates = keys(attributes)
   const allowedUpdates = ['like', 'comments']
@@ -62,6 +72,7 @@ const remove = async (id) => {
 module.exports = {
   create,
   list,
+  listById,
   update,
   remove,
 }

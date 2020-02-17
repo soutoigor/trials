@@ -1,6 +1,7 @@
 const {
   create: createPost,
   list: listPosts,
+  listById: listPostById,
   update: updatePost,
   remove: removePost,
 } = require('../services/post')
@@ -19,6 +20,19 @@ const list = (req, res) => {
   listPosts()
     .then((posts) => {
       res.json(posts)
+    })
+    .catch((err) => {
+      res.status(500).send(err)
+    })
+}
+
+const listById = (req, res) => {
+  listPostById(req.params.id)
+    .then((post) => {
+      if (post.message === 'Post not found') {
+        res.status(404).send(post.message)
+      }
+      res.json(post)
     })
     .catch((err) => {
       res.status(500).send(err)
@@ -54,6 +68,7 @@ const remove = (req, res) => {
 module.exports = {
   create,
   list,
+  listById,
   update,
   remove,
 }
