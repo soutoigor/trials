@@ -2,6 +2,7 @@ const {
   model,
   Schema,
 } = require('mongoose')
+const moment = require('moment')
 
 const postSchema = new Schema({
   authorName: {
@@ -31,6 +32,10 @@ const postSchema = new Schema({
     type: Number,
     required: false,
   },
+  createdAt: {
+    type: Date,
+    default: moment(),
+  },
   comments: [{
     authorName: {
       type: String,
@@ -41,6 +46,10 @@ const postSchema = new Schema({
       type: String,
       trim: true,
       required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: moment(),
     },
   }],
 })
